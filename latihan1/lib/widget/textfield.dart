@@ -13,8 +13,11 @@ class CustomTextField extends StatelessWidget {
       controller: controller,
       decoration: InputDecoration(
         label: Text(labeltext),
+        enabledBorder: OutlineInputBorder(),
+        focusedBorder: OutlineInputBorder()
       ),
       obscureText: obscureText ,
+      
     );
   }
 }
