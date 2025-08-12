@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-// import 'package:intl/intl.dart';
-
+import 'package:latihan1/widget/button.dart';
+import 'package:latihan1/widget/textfield.dart';
 import 'KalkulatorPage.dart';
 
 enum JenisKelamin { Pria, Wanita }
@@ -47,37 +47,18 @@ class _RegisterPageState extends State<RegisterPage> {
             Text("Complete the input", style: TextStyle(color: Colors.amber)),
             Container(
               margin: EdgeInsets.all(10),
-              child: TextField(
+              child: CustomTextField(
                 controller: _usernameController,
-                decoration: InputDecoration(
-                  labelText: "Username",
-                  labelStyle: TextStyle(color: Colors.amber),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-                    borderSide: BorderSide(color: Colors.amber),
-                  ),
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.orange),
-                  ),
-                ),
+                labeltext: "Input username",
+                obscureText: false,
               ),
             ),
             Container(
               margin: EdgeInsets.all(10),
-              child: TextField(
+              child: CustomTextField(
                 controller: _passwordController,
+                labeltext: "Input password",
                 obscureText: true,
-                decoration: InputDecoration(
-                  labelText: "Password",
-                  labelStyle: TextStyle(color: Colors.amber),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-                    borderSide: BorderSide(color: Colors.amber),
-                  ),
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.orange),
-                  ),
-                ),
               ),
             ),
 
@@ -157,7 +138,8 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
             ),
             Center(
-              child: ElevatedButton(
+              child: Button(
+                text: "Register",
                 onPressed: () {
                   String username = _usernameController.text;
                   String password = _passwordController.text;
@@ -180,11 +162,8 @@ class _RegisterPageState extends State<RegisterPage> {
                     );
                   }
                 },
-                child: Text("Register"),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.amber,
-                  foregroundColor: Colors.black,
-                ),
+                backgroundColor: Colors.amber,
+                foregroundColor: Colors.black,
               ),
             ),
           ],
