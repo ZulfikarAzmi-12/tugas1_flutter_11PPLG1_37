@@ -13,7 +13,19 @@ class FootballController extends GetxController {
     imageUrl: "https://i.pinimg.com/1200x/ed/06/94/ed0694106712a4ab6236c9316f3c9ef3.jpg",
     nama: "Lionel Messi",
     posisi: "ST",
-    nomorpunggung: 10)
+    nomorpunggung: 10),
+    Players(
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Picture_with_Mbapp%C3%A9_%28cropped%29.jpg/500px-Picture_with_Mbapp%C3%A9_%28cropped%29.jpg",
+    nama: "Kylian Mbappe",
+    posisi: "ST",
+    nomorpunggung: 10),
+    Players(
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Ronaldinho.jpg/330px-Ronaldinho.jpg",
+    nama: "Ronaldinho",
+    posisi: "ST",
+    nomorpunggung: 10),
+  
+
     
   ].obs;
 

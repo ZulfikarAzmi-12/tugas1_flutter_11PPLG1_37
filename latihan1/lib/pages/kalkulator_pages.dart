@@ -87,7 +87,7 @@ class KalkukatorPages extends StatelessWidget {
               child: Button(
                 text: "Clear",
                 onPressed: kalkulatorController.clear,
-                backgroundColor: Colors.blue,
+                backgroundColor: Colors.green,
                 foregroundColor: Colors.white,
               ),
             ),

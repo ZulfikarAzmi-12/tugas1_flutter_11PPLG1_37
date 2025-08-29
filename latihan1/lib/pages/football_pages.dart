@@ -13,53 +13,61 @@ class FootballPages extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey[100],
       appBar: AppBar(
-        title: Text("List Player"),
-        backgroundColor: Colors.blueAccent,
+        title: Text("List Player", 
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+        ),),
+        centerTitle: true,  
+        backgroundColor: Colors.greenAccent,
         elevation: 0,
       ),
-      body: Container(
-        margin: EdgeInsets.all(10),
+      body: 
+      
+      Container(
         child: Obx(
           () => ListView.builder(
             itemCount: footballController.players.length,
             itemBuilder: (context, index) {
               final player = footballController.players[index];
-              return Card(
-                color: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                elevation: 3,
-                margin: EdgeInsets.symmetric(vertical: 6),
-                child: ListTile(
-                  leading: ClipRRect(
-                    borderRadius: BorderRadius.circular(6),
-                    child: Image.network(
-                      player.imageUrl,
-                      width: 50,
-                      height: 50,
-                      fit: BoxFit.cover,
+              return Container(
+                margin: EdgeInsets.only(top: 30,right: 10,left: 10,bottom: 5),
+                child: Card(
+                  color: Colors.greenAccent,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  elevation: 3,
+                  margin: EdgeInsets.symmetric(vertical: 6),
+                  child: ListTile(
+                    leading: ClipRRect(
+                      borderRadius: BorderRadius.circular(6),
+                      child: Image.network(
+                        player.imageUrl,
+                        width: 50,
+                        height: 50,
+                        fit: BoxFit.cover,
+                      ),
                     ),
-                  ),
-                  title: Text(
-                    player.nama,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.blue[900],
+                    title: Text(
+                      player.nama,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
                     ),
+                    subtitle: Text(
+                      "${player.posisi}, ${player.nomorpunggung}",
+                      style: TextStyle(color: Colors.grey[600]),
+                    ),
+                    trailing: Icon(Icons.arrow_forward_ios,
+                        size: 16, color: Colors.black),
+                    onTap: () {
+                      Get.toNamed(
+                        AppRoutes.editPage,
+                        arguments: {"index": index, "player": player},
+                      );
+                    },
                   ),
-                  subtitle: Text(
-                    "${player.posisi}, ${player.nomorpunggung}",
-                    style: TextStyle(color: Colors.grey[600]),
-                  ),
-                  trailing: Icon(Icons.arrow_forward_ios,
-                      size: 16, color: Colors.blueAccent),
-                  onTap: () {
-                    Get.toNamed(
-                      AppRoutes.editPage,
-                      arguments: {"index": index, "player": player},
-                    );
-                  },
                 ),
               );
             },
